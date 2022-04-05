@@ -1,3 +1,4 @@
-<p>
-  {{ options.join() }}
+<p class="badge bg-secondary">
+  {{ options.join("") }}
+  <button class="btn btn-sm btn-danger pull-right" (click)="onHide()">X</button>
 </p>

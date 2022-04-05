@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-visualizer',
@@ -7,4 +7,10 @@ import { Component, Input } from '@angular/core';
 })
 export class VisualizerComponent {
   @Input('sum') options: number[] = [];
+
+  @Output() hide = new EventEmitter<number[]>();
+
+  onHide() {
+    this.hide.emit(this.options);
+  }
 }

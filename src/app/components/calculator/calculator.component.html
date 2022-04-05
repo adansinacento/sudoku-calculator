@@ -1,0 +1,68 @@
+<div class="calc-holder">
+  <div class="row">
+    <div class="col-10">
+      <div class="row">
+        <div class="form-group col-md-4">
+          <label>Add up to:</label>
+          <input
+            type="number"
+            class="form-control"
+            step="1"
+            [min]="minVal"
+            [max]="maxVal"
+            [(ngModel)]="target"
+            (change)="calculateSum()"
+            (keyup)="calculateSum()"
+          />
+        </div>
+        <div class="col-md-4">
+          <p class="title">Available digits:</p>
+          <label *ngFor="let number of allNumbers" class="number-selector">
+            <input
+              type="checkbox"
+              name="available_{{ number }}"
+              [checked]="isAvailableDigit(number)"
+              (change)="onCheckboxChangeDigit(number)"
+            />
+            {{ number }}
+          </label>
+        </div>
+        <div class="col-md-4">
+          <p class="title">Number of digits:</p>
+          <label *ngFor="let number of allNumbers" class="number-selector">
+            <input
+              type="checkbox"
+              name="length_{{ number }}"
+              [checked]="isAvailableLen(number)"
+              (change)="onCheckboxChangeLen(number)"
+            />
+            {{ number }}
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="col-2">
+      <button (click)="onReset()" class="btn btn-sm btn-secondary btn-reset">
+        <mat-icon>settings_backup_restore</mat-icon>
+      </button>
+    </div>
+  </div>
+  <hr *ngIf="dirty" />
+  <h4 *ngIf="sumOptions.length > 0">
+    Possible combinations that add up to {{ target }}
+  </h4>
+  <h4 *ngIf="sumOptions.length < 1 && dirty">
+    It is impossible to make {{ target }} with the selected criteria.
+  </h4>
+  <h4 *ngIf="!dirty" class="tutorial">
+    Type in a number or change available digits to calculate.
+  </h4>
+  <div class="row">
+    <app-visualizer
+      class="col-4 col-sm-2"
+      *ngFor="let set of sumOptions"
+      [sum]="set"
+      (hide)="hideOption($event)"
+    ></app-visualizer>
+  </div>
+</div>
