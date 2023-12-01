@@ -1,3 +1,9 @@
+## 0.1.3 (2023-12-01)
+
+### Fix
+
+- **addition-finder-service**: removed to do comment
+
 ## 0.1.2 (2023-12-01)
 
 ### Fix
