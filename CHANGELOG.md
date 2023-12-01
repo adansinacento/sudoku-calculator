@@ -1,3 +1,9 @@
+## 0.1.2 (2023-12-01)
+
+### Fix
+
+- **index.html**: fixed relative paths to help biuld
+
 ## 0.1.1 (2023-12-01)
 
 ### Fix
