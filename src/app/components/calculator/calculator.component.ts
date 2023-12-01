@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { AdditionFinderService } from 'src/app/services/addition-finder.service';
 
 @Component({
@@ -6,7 +6,7 @@ import { AdditionFinderService } from 'src/app/services/addition-finder.service'
   templateUrl: './calculator.component.html',
   styleUrls: ['./calculator.component.scss'],
 })
-export class CalculatorComponent implements OnInit {
+export class CalculatorComponent {
   allNumbers: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9];
   availableNumbers: number[] = [];
   availableLens: number[] = [];

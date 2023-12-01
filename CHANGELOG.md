@@ -1,3 +1,13 @@
+## 1.0.0 (2023-12-01)
+
+### BREAKING CHANGE
+
+- core angular version modified as well as node v
+
+### Feat
+
+- **angular**: version upgrade 13 to 17
+
 ## 0.1.3 (2023-12-01)
 
 ### Fix
