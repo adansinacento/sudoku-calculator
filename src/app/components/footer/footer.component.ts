@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { AppVersionService } from 'src/app/services/app-version.service';
 
 @Component({
@@ -6,7 +6,7 @@ import { AppVersionService } from 'src/app/services/app-version.service';
   templateUrl: './footer.component.html',
   styleUrls: ['./footer.component.scss'],
 })
-export class FooterComponent implements OnInit {
+export class FooterComponent {
   version = '0.0.0';
 
   constructor(private _versionService: AppVersionService) {}

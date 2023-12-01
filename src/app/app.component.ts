@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { AppVersionService } from './services/app-version.service';
 
 @Component({
@@ -6,7 +6,7 @@ import { AppVersionService } from './services/app-version.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   calculators: boolean[] = [true];
 
   constructor(private _versionService: AppVersionService) {}
