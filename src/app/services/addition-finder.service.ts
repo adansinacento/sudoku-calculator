@@ -37,6 +37,8 @@ export class AdditionFinderService {
       answ = [...answ, ...responses];
     }
 
+    //TO DO: Check against mandatory number array
+
     return answ.sort((a, b) => b.length - a.length);
   }
 
