@@ -1,3 +1,9 @@
+## 0.1.0 (2023-12-01)
+
+### Feat
+
+- **footer.component**: display the version at the footer
+
 ## 0.0.1 (2023-12-01)
 
 ### Fix
