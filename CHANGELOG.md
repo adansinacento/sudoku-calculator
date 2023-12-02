@@ -1,3 +1,9 @@
+## 1.2.0 (2023-12-02)
+
+### Feat
+
+- **calculator-component**: added support for mandatory digits
+
 ## 1.1.0 (2023-12-01)
 
 ### Feat

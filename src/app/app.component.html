@@ -15,6 +15,21 @@
       <ng-icon name="matAddCircleRound"></ng-icon>
     </button>
   </h2>
-  <app-calculator *ngFor="let calc of calculators"></app-calculator>
+  <div class="flex flex-row flex-wrap">
+    <div
+      *ngFor="let calc of calculators; let i = index"
+      class="w-full md:w-1/2 p-1"
+    >
+      <app-calculator
+        [index]="i"
+        (delted)="onRemoveIndex($event)"
+      ></app-calculator>
+    </div>
+  </div>
+
+  <p *ngIf="calculators.length < 1" class="text-lg text-center">
+    Start by adding calculators
+  </p>
+
   <app-footer></app-footer>
 </div>

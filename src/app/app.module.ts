@@ -10,6 +10,7 @@ import {
   matAddCircleRound,
   matSettingsBackupRestoreRound,
   matRemoveCircleRound,
+  matDeleteForeverRound,
 } from '@ng-icons/material-icons/round';
 
 @NgModule({
@@ -26,6 +27,7 @@ import {
       matAddCircleRound,
       matSettingsBackupRestoreRound,
       matRemoveCircleRound,
+      matDeleteForeverRound,
     }),
   ],
   providers: [],

@@ -6,16 +6,22 @@ import { AppVersionService } from './services/app-version.service';
   templateUrl: './app.component.html',
 })
 export class AppComponent {
-  calculators: boolean[] = [true];
+  calculators: number[] = [0];
+  nextIndex = 1;
 
   constructor(private _versionService: AppVersionService) {}
 
   onAddCalculator() {
-    this.calculators.push(true);
+    this.calculators.push(this.nextIndex);
+    this.nextIndex += 1;
   }
 
   onRemoveCalculator() {
     this.calculators.pop();
+  }
+
+  onRemoveIndex(index: number) {
+    this.calculators.splice(index, 1);
   }
 
   ngOnInit(): void {
