@@ -4,7 +4,6 @@ import { AppVersionService } from './services/app-version.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
   calculators: boolean[] = [true];

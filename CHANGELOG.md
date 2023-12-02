@@ -1,3 +1,9 @@
+## 1.1.0 (2023-12-01)
+
+### Feat
+
+- **css**: removed bootstrap from app
+
 ## 1.0.0 (2023-12-01)
 
 ### BREAKING CHANGE
