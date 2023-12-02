@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { AdditionFinderService } from 'src/app/services/addition-finder.service';
 
 @Component({
@@ -9,22 +9,34 @@ export class CalculatorComponent {
   allNumbers: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9];
   availableNumbers: number[] = [];
   availableLens: number[] = [];
+  mandatoryNumbers: number[] = [];
   minVal = 1;
   maxVal = 45;
   target = 23;
   dirty = false;
 
   sumOptions: number[][] = [];
+  @Input() index = 0;
+  @Output('delted') deleteEmitter = new EventEmitter<number>();
 
   constructor(private addition: AdditionFinderService) {}
 
   ngOnInit(): void {
     this.availableNumbers = [...this.allNumbers];
     this.availableLens = [...this.allNumbers];
+    this.mandatoryNumbers = [];
   }
 
   isAvailableDigit(n: number) {
     return this.availableNumbers.includes(n);
+  }
+
+  isAvailableLen(n: number) {
+    return this.availableLens.includes(n);
+  }
+
+  isAvailableMandatory(n: number) {
+    return this.mandatoryNumbers.includes(n);
   }
 
   onCheckboxChangeDigit(n: number) {
@@ -38,8 +50,15 @@ export class CalculatorComponent {
     this.calculateSum();
   }
 
-  isAvailableLen(n: number) {
-    return this.availableLens.includes(n);
+  onCheckBoxChangeMandatory(n: number) {
+    if (this.isAvailableMandatory(n)) {
+      const i = this.mandatoryNumbers.indexOf(n);
+      this.mandatoryNumbers.splice(i, 1);
+    } else {
+      this.mandatoryNumbers = [...this.mandatoryNumbers, n];
+    }
+
+    this.calculateSum();
   }
 
   onCheckboxChangeLen(n: number) {
@@ -56,8 +75,13 @@ export class CalculatorComponent {
   onReset() {
     this.availableLens = [...this.allNumbers];
     this.availableNumbers = [...this.allNumbers];
+    this.mandatoryNumbers = [];
     this.dirty = false;
     this.sumOptions = [];
+  }
+
+  onDelete() {
+    this.deleteEmitter.emit(this.index);
   }
 
   calculateSum() {
@@ -71,7 +95,8 @@ export class CalculatorComponent {
     this.sumOptions = this.addition.findSum(
       this.availableNumbers,
       this.target,
-      this.availableLens
+      this.availableLens,
+      this.mandatoryNumbers
     );
 
     this.dirty = true;

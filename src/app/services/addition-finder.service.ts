@@ -2,10 +2,46 @@ import { Injectable } from '@angular/core';
 
 @Injectable({ providedIn: 'root' })
 export class AdditionFinderService {
-  findSum(numbers: number[], target: number, lenghtOptions: number[]) {
-    return this.sum_partial(numbers, target, lenghtOptions, []).sort(
-      (a, b) => a.length - b.length
-    );
+  findSum(
+    numbers: number[],
+    target: number,
+    lenghtOptions: number[],
+    mandatory: number[]
+  ) {
+    const responses = this.sum_partial(
+      numbers,
+      target,
+      lenghtOptions,
+      [],
+      mandatory
+    ).sort((a, b) => a.length - b.length);
+
+    return this.checkMandatory(responses, mandatory);
+  }
+
+  private checkMandatory(
+    responses: number[][],
+    mandatory: number[]
+  ): number[][] {
+    if (mandatory.length === 0) return responses;
+
+    const final: number[][] = [];
+    for (const response of responses) {
+      let hasMandatory = true;
+      for (const mandatoryDigit of mandatory) {
+        //every single mandatory digit must be included
+        if (!response.includes(mandatoryDigit)) {
+          hasMandatory = false;
+          break;
+        }
+      }
+
+      if (hasMandatory) {
+        final.push(response);
+      }
+    }
+
+    return final;
   }
 
   //thanks to https://stackoverflow.com/questions/4632322/finding-all-possible-combinations-of-numbers-to-reach-a-given-sum
@@ -13,7 +49,8 @@ export class AdditionFinderService {
     numbers: number[],
     target: number,
     lenghtOptions: number[],
-    partial: number[]
+    partial: number[],
+    mandatory: number[]
   ): number[][] {
     const sum = this.arraySum(partial);
     let answ: number[][] = [];
@@ -30,10 +67,13 @@ export class AdditionFinderService {
 
       const remaining = numbers.slice(i + 1, numbers.length);
 
-      const responses = this.sum_partial(remaining, target, lenghtOptions, [
-        ...partial,
-        n,
-      ]);
+      const responses = this.sum_partial(
+        remaining,
+        target,
+        lenghtOptions,
+        [...partial, n],
+        mandatory
+      );
       answ = [...answ, ...responses];
     }
 
