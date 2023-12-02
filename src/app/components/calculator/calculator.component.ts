@@ -4,7 +4,6 @@ import { AdditionFinderService } from 'src/app/services/addition-finder.service'
 @Component({
   selector: 'app-calculator',
   templateUrl: './calculator.component.html',
-  styleUrls: ['./calculator.component.scss'],
 })
 export class CalculatorComponent {
   allNumbers: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9];

@@ -1,4 +1,11 @@
-<p class="badge bg-secondary">
+<p
+  class="inline-block p-1 text-center text-sm align-baseline leading-none rounded bg-gray-600 mr-1 text-white mb-1"
+>
   {{ options.join("") }}
-  <button class="btn btn-sm btn-danger pull-right" (click)="onHide()">X</button>
+  <button
+    class="inline-block align-middle text-center select-none border font-normal whitespace-no-wrap rounded no-underline py-1 px-2 leading-tight text-xs bg-red-600 text-white hover:bg-red-700 pull-right"
+    (click)="onHide()"
+  >
+    X
+  </button>
 </p>

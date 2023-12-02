@@ -4,7 +4,6 @@ import { AppVersionService } from 'src/app/services/app-version.service';
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html',
-  styleUrls: ['./footer.component.scss'],
 })
 export class FooterComponent {
   version = '0.0.0';

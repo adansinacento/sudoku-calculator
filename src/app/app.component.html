@@ -1,15 +1,18 @@
-<div class="container">
-  <h2 class="title">
+<div class="container mx-auto px-4 mt-12">
+  <h2 class="text-center text-3xl">
     Sudoku sum calculator
-    <button class="btn btn-sm btn-primary" (click)="onAddCalculator()">
-      +
-    </button>
     <button
       [disabled]="calculators.length < 2"
-      class="btn btn-sm btn-danger"
+      class="align-middle text-center font-normal rounded no-underline text-lg p-2 pb-0 leading-tight bg-red-600 text-white hover:bg-red-700 ml-1 mb-1"
       (click)="onRemoveCalculator()"
     >
-      -
+      <ng-icon name="matRemoveCircleRound"></ng-icon>
+    </button>
+    <button
+      class="align-middle text-center font-normal rounded no-underline text-lg p-2 pb-0 leading-tight bg-blue-600 text-white hover:bg-blue-600 ml-1 mb-1"
+      (click)="onAddCalculator()"
+    >
+      <ng-icon name="matAddCircleRound"></ng-icon>
     </button>
   </h2>
   <app-calculator *ngFor="let calc of calculators"></app-calculator>
