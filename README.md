@@ -20,7 +20,7 @@ To make a build run `ng build`, the compiled files will be in the /dist folder o
 
 ---
 
-## Contributing:
+## Contributing to the project:
 
 To contribute to this project clone the repo and meake a feature branch based on the `main` branch.
 
