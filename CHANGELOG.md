@@ -1,3 +1,15 @@
+## 1.2.2 (2024-06-04)
+
+### Fix
+
+- **empty**: empty commit to create new tag
+
+## 1.2.1 (2024-06-04)
+
+### Fix
+
+- **app-component**: refactores to use @ syntax and added number only pattern
+
 ## 1.2.0 (2023-12-02)
 
 ### Feat
@@ -48,4 +60,4 @@
 
 ### Fix
 
-- **deploy.yml**: fixed  argument line
+- **deploy.yml**: fixed argument line
