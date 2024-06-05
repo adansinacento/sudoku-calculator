@@ -1,3 +1,10 @@
+## 1.2.2 (2024-06-04)
+
+### Fix
+
+- **empty**: empty commit to create new tag
+- **app-component**: refactores to use @ syntax and added number only pattern
+
 ## 1.2.1 (2024-06-04)
 
 ### Fix
